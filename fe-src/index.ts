@@ -1,4 +1,4 @@
-import "./pages/home/index";
+import "./pages/home/index.js";
 import "./pages/reportar-pets/index";
 import "./pages/reportar-pet-elegida/index";
 import "./pages/sign-in/index";
