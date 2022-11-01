@@ -182,7 +182,7 @@ const state = {
   //con este metodo voy a crear una cuenta con los datos pasados por parametro
   crearCuenta(mail: string, password: string, name: string, callback) {
     fetch(API_BASE_URL + "/auth", {
-      method: "POST",
+      method: "post",
       //necesita este header para que funcione
       headers: {
         "content-type": "application/json",
