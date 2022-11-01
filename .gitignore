@@ -5,4 +5,5 @@ fe-dist
 dist
 index.js
 db.js
+yarn.lock
 .parcel-cache

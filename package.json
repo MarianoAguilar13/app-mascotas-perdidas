@@ -28,7 +28,7 @@
     "dev:fe": "parcel serve ./fe-src/index.html",
     "build:front": "parcel build ./fe-src/index.html",
     "build:api": "tsc",
-    "build": "yarn build:front && yarn build:api",
+    "build": "npm run build:front && npm run build:api",
     "start": "node ./be-dist/index.js"
   },
   "devDependencies": {
