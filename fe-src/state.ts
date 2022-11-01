@@ -68,7 +68,7 @@ const state = {
   petsCercanas(lat: number, lng: number, location: string, callback) {
     const currentState = this.getState();
     //si existe un email en el state va a hacer el fetch-post
-    fetch("http://localhost:3000/pets/cercanas?lat=" + lat + "&lng=" + lng, {
+    fetch(API_BASE_URL + "/pets/cercanas?lat=" + lat + "&lng=" + lng, {
       method: "GET",
 
       headers: {
