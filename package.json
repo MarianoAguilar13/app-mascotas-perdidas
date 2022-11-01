@@ -4,9 +4,9 @@
   "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
-    "@types/node": "^18.6.4",
     "@types/dropzone": "^5.7.4",
     "@types/mapbox-gl": "^2.7.6",
+    "@types/node": "^18.11.9",
     "@vaadin/router": "^1.7.4",
     "algoliasearch": "^4.14.2",
     "cloudinary": "^1.32.0",
@@ -28,18 +28,16 @@
     "dev:fe": "parcel serve ./fe-src/index.html",
     "build:front": "parcel build ./fe-src/index.html",
     "build:api": "tsc",
-    "build": "npm run build:front && npm run build:api",
+    "build": "yarn build:front && yarn build:api",
     "start": "node ./be-dist/index.js"
   },
   "devDependencies": {
     "buffer": "^6.0.3",
-    "os-browserify": "^0.3.0",
-    "path-browserify": "^1.0.1",
+    "node": "16.14.0",
+    "npm": "8.3.1",
     "process": "^0.11.10",
     "ts-node": "10.8.1",
     "typescript": "^4.7.4",
-    "node": "16.14.0",
-    "npm": "8.3.1",
     "yarn": "1.22.18"
   }
 }
