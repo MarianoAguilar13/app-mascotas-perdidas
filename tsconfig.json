@@ -3,6 +3,7 @@
     "target": "ESNext",
     "module": "CommonJS",
     "resolveJsonModule": true,
+    "moduleResolution": "node",
     "outDir": "be-dist"
   },
   "exclude": ["./fe-src"],
