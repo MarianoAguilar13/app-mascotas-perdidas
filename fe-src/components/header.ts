@@ -252,24 +252,23 @@ export const init = () => {
     addListeners() {
       //esto va a ir en todos las page para que funcione correctamente
       //el botno desplegable
+      const shRoot = this.shadowRoot as any;
 
-      if (this) {
-      }
-      const icono = this.shadowRoot.querySelector(
+      const icono = shRoot.querySelector(
         ".header__visible__logo-container__logo"
       );
 
-      const botonAbreMenuEl = this.shadowRoot.querySelector(
+      const botonAbreMenuEl = shRoot.querySelector(
         ".header__visible__boton-desplegar"
       );
-      const botonCerrarMenuEl = this.shadowRoot.querySelector(
+      const botonCerrarMenuEl = shRoot.querySelector(
         ".ventana-links__boton-cerrar"
       );
-      const menuEl = this.shadowRoot.querySelector(".ventana-links") as any;
+      const menuEl = shRoot.querySelector(".ventana-links") as any;
 
-      const cerrarSesion = this.shadowRoot.querySelector(".cerrar-sesion");
+      const cerrarSesion = shRoot.querySelector(".cerrar-sesion");
 
-      const cerrarSesionVentana = this.shadowRoot.querySelector(
+      const cerrarSesionVentana = shRoot.querySelector(
         ".cerrar-sesion-ventana"
       );
 

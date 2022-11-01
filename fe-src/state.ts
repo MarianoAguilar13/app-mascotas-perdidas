@@ -121,7 +121,7 @@ const state = {
   reportarPet(idPet: number, name: string, tel: string, msj: string, callback) {
     //si existe un email en el state va a hacer el fetch-post
     fetch(API_BASE_URL + "/reports", {
-      method: "post",
+      method: "POST",
 
       headers: {
         "content-type": "application/json",
@@ -182,7 +182,7 @@ const state = {
   //con este metodo voy a crear una cuenta con los datos pasados por parametro
   crearCuenta(mail: string, password: string, name: string, callback) {
     fetch(API_BASE_URL + "/auth", {
-      method: "post",
+      method: "POST",
       //necesita este header para que funcione
       headers: {
         "content-type": "application/json",
