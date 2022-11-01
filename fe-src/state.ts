@@ -79,7 +79,7 @@ const state = {
         //a los resultados de las mascotas perdidas cercanas
         const mascotas = results;
 
-        let arrayMascotas;
+        let arrayMascotas = [] as any;
         //Ahora itero y agrego todas las cards de las mascotas perdidas
         if (mascotas[0]) {
           for (const pet of mascotas) {
@@ -233,7 +233,7 @@ const state = {
         //results son las mascotas perdidas del que tiene iniciada sesion
         const mascotas = results;
 
-        let arrayMascotas;
+        let arrayMascotas = [] as any;
         //Ahora itero y agrego todas las cards de mis mascotas perdidas
         if (mascotas[0]) {
           for (const pet of mascotas) {

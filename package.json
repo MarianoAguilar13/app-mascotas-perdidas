@@ -4,6 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
+    "@types/node": "^18.6.4",
     "@types/dropzone": "^5.7.4",
     "@types/mapbox-gl": "^2.7.6",
     "@vaadin/router": "^1.7.4",
@@ -25,7 +26,6 @@
   "scripts": {
     "dev:be": "nodemon --watch ./index.ts --exec ts-node ./be-src/index.ts",
     "dev:fe": "parcel serve ./fe-src/index.html",
-    "dev": "npm run dev:be",
     "build:front": "parcel build ./fe-src/index.html",
     "build:api": "tsc",
     "build": "yarn build:front && yarn build:api",
