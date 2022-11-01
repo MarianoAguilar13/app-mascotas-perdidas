@@ -110,7 +110,7 @@ class MisPetsPerdidas extends HTMLElement {
   addListeners() {
     const containerPet = document.querySelector(
       ".content__container-card-pets"
-    );
+    ) as any;
 
     const arrayMisPets = state.getState().misPetsPerdidas;
 

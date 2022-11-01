@@ -23,25 +23,25 @@ export const init = () => {
         <div class="header__links">
           <a
             class="header__links__link"
-            href="http://localhost:1234/mis-datos"
+            href="https://app-mascotas-perdidas.herokuapp.com/mis-datos"
             target=""
             >Mis Datos</a
           >
           <a
             class="header__links__link"
-            href="http://localhost:1234/mis-pets-perdidas"
+            href="https://app-mascotas-perdidas.herokuapp.com/mis-pets-perdidas"
             target=""
             >Mis mascotas perdidas</a
           >
           <a
             class="header__links__link"
-            href="http://localhost:1234/cargar-pet-perdida"
+            href="https://app-mascotas-perdidas.herokuapp.com/cargar-pet-perdida"
             target=""
             >Reportar mascota</a
           >
           <a
             class="header__links__link cerrar-sesion"
-            href="http://localhost:1234/"
+            href="https://app-mascotas-perdidas.herokuapp.com/"
             target=""
             >Cerrar sesión</a
           >
@@ -58,25 +58,25 @@ export const init = () => {
         <button class="ventana-links__boton-cerrar">x</button>
         <a
           class="ventana-links__link link-uno"
-          href="http://localhost:1234/mis-datos"
+          href="https://app-mascotas-perdidas.herokuapp.com/mis-datos"
           target=""
           >Mis Datos</a
         >
         <a
           class="ventana-links__link link-dos"
-          href="http://localhost:1234/mis-pets-perdidas"
+          href="https://app-mascotas-perdidas.herokuapp.com/mis-pets-perdidas"
           target=""
           >Mis mascotas perdidas</a
         >
         <a
           class="ventana-links__link link-tres"
-          href="http://localhost:1234/cargar-pet-perdida"
+          href="https://app-mascotas-perdidas.herokuapp.com/cargar-pet-perdida"
           target=""
           >Reportar mascota</a
         >
         <a
           class="ventana-links__link link-cuatro cerrar-sesion-ventana"
-          href="http://localhost:1234/"
+          href="https://app-mascotas-perdidas.herokuapp.com/"
           target=""
           >Cerrar sesion</a
         >
@@ -252,6 +252,9 @@ export const init = () => {
     addListeners() {
       //esto va a ir en todos las page para que funcione correctamente
       //el botno desplegable
+
+      if (this) {
+      }
       const icono = this.shadowRoot.querySelector(
         ".header__visible__logo-container__logo"
       );
