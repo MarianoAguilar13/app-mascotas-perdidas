@@ -5,3 +5,4 @@ fe-dist
 dist
 index.js
 db.js
+.parcel-cache
