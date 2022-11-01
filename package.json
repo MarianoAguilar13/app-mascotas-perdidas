@@ -1,0 +1,44 @@
+{
+  "name": "desafio-capitulo-final",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "@types/dropzone": "^5.7.4",
+    "@types/mapbox-gl": "^2.7.6",
+    "@vaadin/router": "^1.7.4",
+    "algoliasearch": "^4.14.2",
+    "cloudinary": "^1.32.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "dropzone": "^6.0.0-beta.2",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.20",
+    "parcel": "^2.7.0",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.22.1"
+  },
+  "scripts": {
+    "dev:be": "nodemon --watch ./index.ts --exec ts-node ./be-src/index.ts",
+    "dev:fe": "parcel serve ./fe-src/index.html",
+    "dev": "npm run dev:be",
+    "build:front": "parcel build ./fe-src/index.html",
+    "build:api": "tsc",
+    "build": "yarn build:front && yarn build:api",
+    "start": "node ./be-dist/index.js"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "ts-node": "10.8.1",
+    "typescript": "^4.7.4",
+    "node": "16.14.0",
+    "npm": "8.3.1",
+    "yarn": "1.22.18"
+  }
+}
