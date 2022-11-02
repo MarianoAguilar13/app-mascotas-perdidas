@@ -196,7 +196,7 @@ class CrearCuenta extends HTMLElement {
     form.addEventListener("submit", (e) => {
       console.log("entro al form");
       e.preventDefault();
-      e.stopPropagation();
+
       const target = e.target as any;
 
       const mail = target.mail.value;
