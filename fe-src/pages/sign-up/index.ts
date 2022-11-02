@@ -15,7 +15,7 @@ class CrearCuenta extends HTMLElement {
             <header-el></header-el>
             <div class="contenedor-form">
                 <h3 class="contenedor-form__titulo">Crear cuenta</h3>
-                <form method="post" class="contenedor-form__form">
+                <form class="contenedor-form__form">
                     <div class="contenedor-form__fieldset">
                     <label class="contenedor-form__label" for="mail-input">MAIL</label>
                     <input

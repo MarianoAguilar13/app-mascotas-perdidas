@@ -191,8 +191,7 @@ class IniciarSesion extends HTMLElement {
       ".button-crear-cuenta"
     ) as any;
 
-    buttonCrearCuenta.addEventListener("click", (e) => {
-      e.preventDefault();
+    buttonCrearCuenta.addEventListener("click", () => {
       Router.go("/sign-up");
     });
   }
