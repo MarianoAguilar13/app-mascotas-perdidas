@@ -171,7 +171,7 @@ class CrearCuenta extends HTMLElement {
   }
 
   addListeners() {
-    /*    function validateEmail(email) {
+    function validateEmail(email) {
       // Define our regular expression.
       var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
@@ -181,20 +181,15 @@ class CrearCuenta extends HTMLElement {
       } else {
         return false;
       }
-    }*/
+    }
 
-    const botonForm = document.querySelector(".button-form") as any;
+    //No se porque se soluciono el problema de que el form enviaba un get
+    //con los datos del form a la url, se soluciono cambiando la class
+    //del elemento
+
     const form = document.querySelector(".form") as any;
-    /*
-    const mailEl = document.getElementById("mail-input");
-    const nameEl = document.getElementById("name-input");
-    const passwordEl = document.getElementById("password-input");
-    const passwordRepetidaEl = document.getElementById(
-      "password-repetida-input"
-    );*/
 
     form.addEventListener("submit", (e) => {
-      console.log("entro al form");
       e.preventDefault();
 
       const target = e.target as any;
@@ -205,26 +200,24 @@ class CrearCuenta extends HTMLElement {
       const passwordRepetida = target.passwordRepetida.value;
 
       if (password == passwordRepetida) {
-        console.log("valida");
-
-        // if (validateEmail(mail)) {
-        state.crearCuenta(mail, password, name, (resultado) => {
-          if (resultado.error) {
-            alert(resultado.error);
-            alert(
-              "Por favor ingrese valores validos para poder crear su cuenta"
-            );
-            Router.go("/sign-up");
-          } else {
-            alert("Su cuenta se ha creado correctamente");
-            Router.go("/");
-          }
-        });
-        /*} else {
+        if (validateEmail(mail)) {
+          state.crearCuenta(mail, password, name, (resultado) => {
+            if (resultado.error) {
+              alert(resultado.error);
+              alert(
+                "Por favor ingrese valores validos para poder crear su cuenta"
+              );
+              Router.go("/sign-up");
+            } else {
+              alert("Su cuenta se ha creado correctamente");
+              Router.go("/");
+            }
+          });
+        } else {
           alert(
             "El mail ingresado, no tiene formato de mail, por favor ingrese un mail válido"
           );
-        }*/
+        }
       } else {
         alert(
           "Las contraseñas ingresadas no coinciden, por favor ingrese los datos nuevamente"
