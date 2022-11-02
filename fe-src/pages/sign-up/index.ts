@@ -1,4 +1,3 @@
-import { InputType } from "zlib";
 import { Router } from "../../../node_modules/@vaadin/router";
 import { state } from "../../state";
 
@@ -186,21 +185,22 @@ class CrearCuenta extends HTMLElement {
 
     const botonForm = document.querySelector(".button-form") as any;
     const form = document.querySelector(".contenedor-form__form") as any;
-
-    const mailEl = document.getElementById("mail-input") as any;
-    const nameEl = document.getElementById("name-input") as any;
-    const passwordEl = document.getElementById("password-input") as any;
+    /*
+    const mailEl = document.getElementById("mail-input");
+    const nameEl = document.getElementById("name-input");
+    const passwordEl = document.getElementById("password-input");
     const passwordRepetidaEl = document.getElementById(
       "password-repetida-input"
-    ) as any;
+    );*/
 
-    botonForm.addEventListener("click", (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-
-      const mail = mailEl.value;
-      const password = passwordEl.value;
-      const name = nameEl.value;
-      const passwordRepetida = passwordRepetidaEl.value;
+      const target = e.target as any;
+      e.preventDefault();
+      const mail = target.mail.value;
+      const password = target.password.value;
+      const name = target.name.value;
+      const passwordRepetida = target.passwordRepetida.value;
 
       if (password == passwordRepetida) {
         // if (validateEmail(mail)) {
