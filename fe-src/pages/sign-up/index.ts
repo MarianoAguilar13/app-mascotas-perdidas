@@ -171,7 +171,7 @@ class CrearCuenta extends HTMLElement {
   }
 
   addListeners() {
-    function validateEmail(email) {
+    /*    function validateEmail(email) {
       // Define our regular expression.
       var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
@@ -181,7 +181,7 @@ class CrearCuenta extends HTMLElement {
       } else {
         return false;
       }
-    }
+    }*/
 
     const form = document.querySelector(".contenedor-form__form") as any;
 
@@ -195,26 +195,26 @@ class CrearCuenta extends HTMLElement {
       const passwordRepetida = target.passwordRepetida.value;
 
       if (password == passwordRepetida) {
-        if (validateEmail(mail)) {
-          state.crearCuenta(mail, password, name, (resultado) => {
-            if (resultado.error) {
-              alert(resultado.error);
-              alert(
-                "Por favor ingrese valores validos para poder crear su cuenta"
-              );
-              Router.go("/sign-up");
-            } else {
-              console.log("nuevo user: ", resultado);
+        // if (validateEmail(mail)) {
+        state.crearCuenta(mail, password, name, (resultado) => {
+          if (resultado.error) {
+            alert(resultado.error);
+            alert(
+              "Por favor ingrese valores validos para poder crear su cuenta"
+            );
+            Router.go("/sign-up");
+          } else {
+            console.log("nuevo user: ", resultado);
 
-              alert("Su cuenta se ha creado correctamente");
-              Router.go("/");
-            }
-          });
-        } else {
+            alert("Su cuenta se ha creado correctamente");
+            Router.go("/");
+          }
+        });
+        /*} else {
           alert(
             "El mail ingresado, no tiene formato de mail, por favor ingrese un mail válido"
           );
-        }
+        }*/
       } else {
         alert(
           "Las contraseñas ingresadas no coinciden, por favor ingrese los datos nuevamente"
