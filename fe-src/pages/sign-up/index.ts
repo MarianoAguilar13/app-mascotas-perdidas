@@ -15,14 +15,14 @@ class CrearCuenta extends HTMLElement {
             <header-el></header-el>
             <div class="contenedor-form">
                 <h3 class="contenedor-form__titulo">Crear cuenta</h3>
-                <form class="contenedor-form__form">
+                <form method="post" class="contenedor-form__form">
                     <div class="contenedor-form__fieldset">
                     <label class="contenedor-form__label" for="mail-input">MAIL</label>
                     <input
                         class="contenedor-form__input-text"
                         id="mail-input"
                         name="mail"
-                        type="mail"
+                        type="email"
                     />
                     </div>
                     <div class="contenedor-form__fieldset">
