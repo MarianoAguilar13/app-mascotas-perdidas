@@ -15,7 +15,7 @@ class CrearCuenta extends HTMLElement {
             <header-el></header-el>
             <div class="contenedor-form">
                 <h3 class="contenedor-form__titulo">Crear cuenta</h3>
-                <form class="contenedor-form__form">
+                <form class="form">
                     <div class="contenedor-form__fieldset">
                     <label class="contenedor-form__label" for="mail-input">MAIL</label>
                     <input
@@ -92,12 +92,12 @@ class CrearCuenta extends HTMLElement {
                     }
 
                     
-                    .contenedor-form__form {
+                    .form {
                         min-width: 310px;
                     }
                     
                     @media (min-width: 769px) {
-                        .contenedor-form__form {
+                        .form {
                         min-width: 356px;
                         }
                     }
@@ -184,7 +184,7 @@ class CrearCuenta extends HTMLElement {
     }*/
 
     const botonForm = document.querySelector(".button-form") as any;
-    const form = document.querySelector(".contenedor-form__form") as any;
+    const form = document.querySelector(".form") as any;
     /*
     const mailEl = document.getElementById("mail-input");
     const nameEl = document.getElementById("name-input");
@@ -216,8 +216,6 @@ class CrearCuenta extends HTMLElement {
             );
             Router.go("/sign-up");
           } else {
-            console.log("nuevo user: ", resultado);
-
             alert("Su cuenta se ha creado correctamente");
             Router.go("/");
           }
