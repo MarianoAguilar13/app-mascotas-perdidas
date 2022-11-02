@@ -194,8 +194,9 @@ class CrearCuenta extends HTMLElement {
     );*/
 
     form.addEventListener("submit", (e) => {
-      e.stopPropagation();
+      console.log("entro al form");
       e.preventDefault();
+      e.stopPropagation();
       const target = e.target as any;
 
       const mail = target.mail.value;
@@ -204,6 +205,8 @@ class CrearCuenta extends HTMLElement {
       const passwordRepetida = target.passwordRepetida.value;
 
       if (password == passwordRepetida) {
+        console.log("valida");
+
         // if (validateEmail(mail)) {
         state.crearCuenta(mail, password, name, (resultado) => {
           if (resultado.error) {
