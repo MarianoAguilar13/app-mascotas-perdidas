@@ -28,14 +28,14 @@ sequelize.sync({ alter: true }).then(() => {
 const port = process.env.PORT || 3000;
 const app = express();
 
+app.use(express.static("dist"));
+
 app.use(
   express.json({
     limit: "50mb",
   })
 );
 app.use(cors());
-
-app.use(express.static("dist"));
 
 //con el auth verifico si existe un users con el mail y si existe envio el id
 //signup

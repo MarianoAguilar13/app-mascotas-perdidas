@@ -58,6 +58,7 @@ class CrearCuenta extends HTMLElement {
                     <button class="button button-form">Enviar</button>
                     </div>
                 </form> 
+              </div>
         `;
     //al container lo paso por la funcion headerNav
     //que lo que hacer es agregarle un hijo que es el nav
