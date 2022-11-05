@@ -355,7 +355,7 @@ app.post("/reports/enviar-mail", async (req, res) => {
 });
 
 //esto hay que borrarlo despues
-
+/*
 app.get("/reports-all", async (req, res) => {
   const reports = await Report.findAll();
 
@@ -366,7 +366,7 @@ app.get("/users-all", async (req, res) => {
   const users = await User.findAll();
 
   res.json(users);
-});
+});*/
 
 app.listen(port, () => {
   console.log("todo ok en el puerto: ", port);

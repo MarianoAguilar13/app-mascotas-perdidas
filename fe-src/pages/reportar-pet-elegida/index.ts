@@ -137,7 +137,7 @@ class ReportarPetElegida extends HTMLElement {
   }
 
   addListeners() {
-    const form = document.querySelector(".contenedor-form__form");
+    const form = document.querySelector(".contenedor-form__form") as any;
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
