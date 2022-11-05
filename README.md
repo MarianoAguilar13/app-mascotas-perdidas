@@ -14,12 +14,21 @@ Si quieren buscar rápido mascotas, hay publicadas, en Avellaneda Buenos Aites y
 Variables de entorno:
 
 SENDGRID_API_KEY
+
 ALGOLIA_APP_ID
+
 ALGOLIA_API_KEY
+
 CLOUDINARY_CLOUD_NAME
+
 CLOUDINARY_API_KEY
+
 CLOUDINARY_API_SECRET
+
 POSTGRE_USERNAME
+
 POSTGRE_PASSWORD
+
 POSTGRE_DATABASE
+
 POSTGRE_HOST
