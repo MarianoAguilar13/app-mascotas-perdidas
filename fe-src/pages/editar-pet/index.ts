@@ -217,7 +217,7 @@ class EditarPet extends HTMLElement {
     //creo el dropzone
     Dropzone.autoDiscover = false;
 
-    let filePicture = null;
+    let filePicture;
 
     let myDropzone = new Dropzone(".picture-container", {
       url: "/falsa",

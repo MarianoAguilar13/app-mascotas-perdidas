@@ -191,7 +191,7 @@ class CargarPetPerdida extends HTMLElement {
   }
 
   addListeners() {
-    const form = document.querySelector(".contenedor-form__form");
+    const form = document.querySelector(".contenedor-form__form") as any;
     //creo el dropzone
     Dropzone.autoDiscover = false;
 

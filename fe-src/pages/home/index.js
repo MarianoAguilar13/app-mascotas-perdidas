@@ -19,9 +19,7 @@ class Home extends HTMLElement {
              <h1 class="content__title">Mascotas perdidas cerca tuyo</h1>
              <div class="content__container">
                 <p class="content__container__desciption">
-                    Escriba la ciudad, barrio o monumento, en el cual quiere establecer
-                     el radio de busqueda, luego de apretar en el boton buscar le 
-                     apareceran las mascotas perdidas en las cercanias
+                    Apretar en el boton buscar y le apareceran las mascotas perdidas en las cercanías.
                 </p>
                 <form class="search-form">
                   <input class="input" name="q" type="search" />
@@ -165,7 +163,7 @@ class Home extends HTMLElement {
 
       botonLocation.addEventListener("click", (e) => {
         e.preventDefault();
-
+        botonLocation.style.visibility = "hidden";
         //tengo que usar un callback para madar a la otra pag porque sino
         //el state en reportar-pets se ejecuta antes y no me trae las pets
         state.petsCercanas(lat, lng, () => {
