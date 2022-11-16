@@ -1,14 +1,6 @@
-//const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "http://localhost:3000";
 
-const API_BASE_URL = "https://app-mascotas-perdidas.herokuapp.com";
-
-type Jugada = "piedra" | "papel" | "tijeras";
-type cardPet = {
-  id: number;
-  picURL: string;
-  name: string;
-  location: string;
-};
+//const API_BASE_URL = "https://app-mascotas-perdidas.herokuapp.com";
 
 const state = {
   data: {
@@ -65,7 +57,7 @@ const state = {
     }
   },
   //nos devuelve las mascotas cercanas en un radio de cierta lat y lng
-  petsCercanas(lat: number, lng: number, location: string, callback) {
+  petsCercanas(lat: number, lng: number, callback) {
     const currentState = this.getState();
     //si existe un email en el state va a hacer el fetch-post
     fetch(API_BASE_URL + "/pets/cercanas?lat=" + lat + "&lng=" + lng, {
@@ -88,7 +80,6 @@ const state = {
               picURL: pet.picURL,
               name: pet.name,
               description: pet.description,
-              location: location,
             };
             arrayMascotas.push(newPet);
           }

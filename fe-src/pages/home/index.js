@@ -27,6 +27,7 @@ class Home extends HTMLElement {
                   <input class="input" name="q" type="search" />
                   <button  class="button">Buscar</button>
                 </form>
+                <button  class="button button-mi-location">Buscar</button>
              </div>
             </div>
         `;
@@ -82,6 +83,10 @@ class Home extends HTMLElement {
                       background-color: greenyellow;
                       border-radius: 15px;
                     }
+
+                    .search-form{
+                      display: none;
+                    }
                     
                   `;
     this.appendChild(style);
@@ -90,6 +95,7 @@ class Home extends HTMLElement {
   }
 
   addListeners() {
+    /*
     const MAPBOX_TOKEN =
       "pk.eyJ1IjoibWFyaWFub3JhbGl1Z2ExMyIsImEiOiJjbDhodGJqZHYwaWo4M3dxcHV5cjUxaXZkIn0.HWomT8jl3x56PClLxd1Tlw";
     const mapboxClient = new MapboxClient(MAPBOX_TOKEN);
@@ -123,6 +129,7 @@ class Home extends HTMLElement {
     window.map = initMap();
     //aca instancia el evento del form y le pasa el callback que se ejecutara
     //con los datos enviados de los resultados
+    
     initSearchForm(function (results, location) {
       //toma el primer resultado de las palabras claves enviadas
       const firstResult = results[0];
@@ -145,6 +152,33 @@ class Home extends HTMLElement {
             "No se encontro ninguna mascota perdida en la ubicación que solicito, ingrese otra ubaicación para realizar una nueva busqueda"
           );
         }
+      });
+    });
+    */
+    const botonLocation = document.querySelector(".button-mi-location");
+
+    navigator.geolocation.getCurrentPosition((geoLocationPosition) => {
+      const lat = geoLocationPosition.coords.latitude;
+      const lng = geoLocationPosition.coords.longitude;
+
+      console.log("lat: ", lat + "... lng: ", lng);
+
+      botonLocation.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        //tengo que usar un callback para madar a la otra pag porque sino
+        //el state en reportar-pets se ejecuta antes y no me trae las pets
+        state.petsCercanas(lat, lng, () => {
+          const actualData = state.getState();
+
+          if (actualData.petsPerdidasCercanas[0]) {
+            Router.go("/reportar-pets");
+          } else {
+            alert(
+              "No se encontro ninguna mascota perdida en la ubicación que solicito, ingrese otra ubaicación para realizar una nueva busqueda"
+            );
+          }
+        });
       });
     });
   }

@@ -92,7 +92,7 @@ class ReportarPets extends HTMLElement {
   addListeners() {
     const containerPet = document.querySelector(
       ".content__container-card-pets"
-    );
+    ) as any;
     const arrayPetsCercanas = state.getState().petsPerdidasCercanas;
 
     //agrego las cards pets
@@ -100,7 +100,7 @@ class ReportarPets extends HTMLElement {
       const newPet = document.createElement("div");
       //"id", "name", "location", "picURL"
       newPet.innerHTML = `
-      <card-pet-el id="${pet.id}" name="${pet.name}" picURL="${pet.picURL}" info="${pet.description}" location="${pet.location}" ></card-pet-el>
+      <card-pet-el id="${pet.id}" name="${pet.name}" picURL="${pet.picURL}" info="${pet.description}" ></card-pet-el>
       `;
 
       // const newPet = newCardPet(pet.id, pet.picURL, pet.name, pet.location);

@@ -5,7 +5,7 @@ export function init() {
   class CardPetEl extends HTMLElement {
     //estos son los atributos que voy a estar obsevando su cambios
     static get observedAttributes() {
-      return ["id", "name", "location", "info", "picURL"];
+      return ["id", "name", "info", "picURL"];
     }
 
     shadow = this.attachShadow({ mode: "open" });
@@ -29,7 +29,6 @@ export function init() {
           <div class="card-pet__container__info__sub-info">
             <h4 class="card-pet__container__info__id"></h4>
             <h4 class="card-pet__container__info__name"></h4>
-            <h5 class="card-pet__container__info__location"></h5>
           </div>
           <button class="card-pet__container__button">
             REPORTAR INFORMACION
@@ -147,27 +146,26 @@ export function init() {
       const imagenEl = this.shadow.querySelector(".card-pet__imagen") as any;
       imagenEl.src = this.getAttribute("picURL");
 
-      const idEl = this.shadow.querySelector(".card-pet__container__info__id");
+      const idEl = this.shadow.querySelector(
+        ".card-pet__container__info__id"
+      ) as any;
       idEl.textContent = this.getAttribute("id");
 
       const nameEl = this.shadow.querySelector(
         ".card-pet__container__info__name"
-      );
+      ) as any;
       nameEl.textContent = this.getAttribute("name");
-
-      const locationEl = this.shadow.querySelector(
-        ".card-pet__container__info__location"
-      );
-      locationEl.textContent = this.getAttribute("location");
 
       const infoEl = this.shadow.querySelector(
         ".card-pet__container__sub-container__desciption"
-      );
+      ) as any;
       infoEl.textContent = this.getAttribute("info");
 
       //cuando hacer click en el boton de la card va hacia la pag
       //donde completara el formulario para reportar
-      const boton = this.shadow.querySelector(".card-pet__container__button");
+      const boton = this.shadow.querySelector(
+        ".card-pet__container__button"
+      ) as any;
       boton.addEventListener("click", (e) => {
         e.preventDefault();
 
