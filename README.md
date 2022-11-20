@@ -6,10 +6,6 @@ https://app-mascotas-perdidas.herokuapp.com
 Link de la documentación de la API con Postman:
 https://documenter.getpostman.com/view/21301641/2s8YYFs4eP
 
-Consideraciones:
-
-Para este desafío lo único que no incorpore fue el mapa interactivo de mapbox, ya que el fuerte de este desafío no era el front, entonces no decidí invertir mucho tiempo en esa parte del mapa, si funciona el buscador por ciudad, monumentos, etc, lo que no se va a ver son ubicadar en el mapa ya que no lo implemente, en el proximo que es con react si lo implemento asi ya esta completo. Si es requisito para aprobar este desafio implementarlo, no hay problema, lo implementaré.
-
 Variables de entorno:
 
 SENDGRID_API_KEY
