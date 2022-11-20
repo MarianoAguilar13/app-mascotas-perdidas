@@ -93,66 +93,6 @@ class Home extends HTMLElement {
   }
 
   addListeners() {
-    /*
-    const MAPBOX_TOKEN =
-      "pk.eyJ1IjoibWFyaWFub3JhbGl1Z2ExMyIsImEiOiJjbDhodGJqZHYwaWo4M3dxcHV5cjUxaXZkIn0.HWomT8jl3x56PClLxd1Tlw";
-    const mapboxClient = new MapboxClient(MAPBOX_TOKEN);
-
-    function initMap() {
-      mapboxgl.accessToken = MAPBOX_TOKEN;
-    }
-
-    function initSearchForm(callback) {
-      const form = document.querySelector(".search-form");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        //es el lugar/ciudad que va en la card de la pet
-        const location = e.target.q.value;
-        mapboxClient.geocodeForward(
-          e.target.q.value,
-          {
-            country: "ar",
-            autocomplete: true,
-            language: "es",
-          },
-          function (err, data, res) {
-            console.log(data);
-            //una vez que se envio los datos del form, llama al callback con esos datos
-            if (!err) callback(data.features, location);
-          }
-        );
-      });
-    }
-
-    window.map = initMap();
-    //aca instancia el evento del form y le pasa el callback que se ejecutara
-    //con los datos enviados de los resultados
-    
-    initSearchForm(function (results, location) {
-      //toma el primer resultado de las palabras claves enviadas
-      const firstResult = results[0];
-
-      //luego me guardo las coordenadas y las intercambio de lugar
-      //ya que tienen distinto indice en mapbox y algolia
-      const coordenadas = firstResult.geometry.coordinates;
-      const lat = coordenadas[1];
-      const lng = coordenadas[0];
-
-      //tengo que usar un callback para madar a la otra pag porque sino
-      //el state en reportar-pets se ejecuta antes y no me trae las pets
-      state.petsCercanas(lat, lng, location, () => {
-        const actualData = state.getState();
-
-        if (actualData.petsPerdidasCercanas[0]) {
-          Router.go("/reportar-pets");
-        } else {
-          alert(
-            "No se encontro ninguna mascota perdida en la ubicación que solicito, ingrese otra ubaicación para realizar una nueva busqueda"
-          );
-        }
-      });
-    });
-    */
     const botonLocation = document.querySelector(".button-mi-location");
 
     navigator.geolocation.getCurrentPosition((geoLocationPosition) => {

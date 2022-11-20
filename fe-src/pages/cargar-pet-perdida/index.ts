@@ -1,6 +1,7 @@
 import { Router } from "../../../node_modules/@vaadin/router";
 import { state } from "../../state";
-import { ObtenerLatLngLocation } from "./location";
+import { initMap } from "./map-location";
+
 const { Dropzone } = require("dropzone");
 
 class CargarPetPerdida extends HTMLElement {
@@ -66,14 +67,16 @@ class CargarPetPerdida extends HTMLElement {
                     rows="10"
                   ></textarea>
                 </div>
-                <div class="contenedor-form__container-location">
-                  <p class="container-location__desciption">
-                    Escriba la ciudad, barrio o monumento, en el cual quieres establecer
-                    el punto centrar, para que las personas busquen en un radio al
-                    rededor.
-                  </p>
-
-                  <input class="contenedor-form__input-text" name="q" type="search" />
+                <div class="contenedor-search__fieldset">
+                    <label class="contenedor-search__label" for="q"
+                    >Escriba el nombre de la ciudad o barrio en el que quiera establecer 
+                    el radio de busqueda de su mascota, luego puede hacer una marca
+                    con el click del mouse y la ultima marca que realize se guardara 
+                    como la ubicación en donde se perdío.</label>
+                    <input name="q" type="search" id="q" class="contenedor-search__input" />
+                </div>
+                <button class="button button-search" >Buscar</button>
+                <div id="map-container" style="width: 100%; height: 310px;" > 
                 </div>
                 <div class="contenedor-form__button-section">
                   <button class="button button-form">Enviar</button>
@@ -81,6 +84,7 @@ class CargarPetPerdida extends HTMLElement {
               </form>
             </div>
         `;
+
     //al container lo paso por la funcion headerNav
     //que lo que hacer es agregarle un hijo que es el nav
 
@@ -161,7 +165,7 @@ class CargarPetPerdida extends HTMLElement {
                       border-radius: 4px;
                       color: black;
                       font-size: 16px;
-                      margin-top: 60px;
+                      margin-top: 30px;
                     }
                     
                     .contenedor-opciones {
@@ -177,17 +181,66 @@ class CargarPetPerdida extends HTMLElement {
                     .contenedor-opciones__button-section {
                       width: 310px;
                     }
+
+                    .contenedor-form__button-section{
+                      width: 310px;
+                    }
+
+                    @media (min-width: 769px) {
+                      .contenedor-form__button-section{
+                        width: 356px;
+                      }
+                    }
                     
                     @media (min-width: 769px) {
                       .contenedor-opciones__button-section {
                         width: 356px;
                       }
                     }
-                              
+
+                    #map-container{
+                      margin-top: 20px;
+                      display: flex;
+                      flex-direction: column;
+                    }
+                    
+                    .contenedor-search__fieldset{
+                      width: 310px;
+                      display: flex;
+                      flex-direction: column;
+                    }
+
+                    @media (min-width: 769px) {
+                      .contenedor-search__fieldset{
+                        width: 356px;
+                      }
+                    }
+                    
+                    .contenedor-search__label{
+                      font-size: 13px;
+                      margin-top: 22px;
+                      margin-bottom: 10px;
+                    }
+
+                    .contenedor-search__input{
+                      width: 100%;
+                      height: 45px;
+                      border: greenyellow 5px outset;
+                      border-radius: 4px;
+                    }
+                        
+                    .button-search{
+                      margin-top:5px;
+                    }
                   `;
     this.appendChild(style);
 
     this.addListeners();
+    this.renderMapbox();
+  }
+
+  renderMapbox() {
+    initMap();
   }
 
   addListeners() {
@@ -215,9 +268,8 @@ class CargarPetPerdida extends HTMLElement {
       botonForm.style.visibility = "hidden";
 
       //tomo todos los datos de los inputs
-      const target = e.target as any;
+      const target = e.target;
 
-      const location = target.q.value;
       const name = target.name.value;
       const type = target.tipoPet.value;
       const description = target.descripcion.value;
@@ -229,42 +281,31 @@ class CargarPetPerdida extends HTMLElement {
       //inicio la cargarPet metodo en el state, que carga una nueva
       //pet en la db, algolia y cloudinary
       if (filePicture) {
-        if (location) {
-          const pictureDataURL = filePicture.dataURL;
-          //la funcion es async para que funcione todo correctamente,
-          //sino algunas variables, se quieren usar antes de ser creadas
-          ObtenerLatLngLocation(location).then((response) => {
-            state.setDatosGeoLocCargaPet(response);
+        const pictureDataURL = filePicture.dataURL;
 
-            const stateGeoLoc = state.getState().datosGeoLocCargaPet;
+        const stateGeoLoc = state.getState().datosGeoLocCargaPet;
 
-            state.cargarPet(
-              name,
-              type,
-              description,
-              pictureDataURL,
-              stateGeoLoc.lat,
-              stateGeoLoc.lng,
-              lost,
-              (result) => {
-                if (result.petId) {
-                  console.log("id pet: ", result.petId);
+        state.cargarPet(
+          name,
+          type,
+          description,
+          pictureDataURL,
+          stateGeoLoc.lat,
+          stateGeoLoc.lng,
+          lost,
+          (result) => {
+            if (result.petId) {
+              console.log("id pet: ", result.petId);
 
-                  alert("Tu mascota se ha cargado correctamente");
-                  Router.go("/");
-                } else {
-                  alert(result.error);
-                  Router.go("/cargar-pet-perdida");
-                  botonForm.style.visibility = "visible";
-                }
-              }
-            );
-          });
-        } else {
-          alert("Por favor ingrese una dirección, es obligatoria");
-          Router.go("/cargar-pet-perdida");
-          botonForm.style.visibility = "visible";
-        }
+              alert("Tu mascota se ha cargado correctamente");
+              Router.go("/");
+            } else {
+              alert(result.error);
+              Router.go("/cargar-pet-perdida");
+              botonForm.style.visibility = "visible";
+            }
+          }
+        );
       } else {
         alert("Por favor ingrese una foto de su mascota");
         Router.go("/cargar-pet-perdida");

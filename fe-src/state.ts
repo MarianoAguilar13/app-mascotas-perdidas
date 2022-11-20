@@ -11,7 +11,7 @@ const state = {
     misPetsPerdidas: [],
 
     //son los datos de geolocalizacion de una pet que se esta por cargar
-    datosGeoLocCargaPet: "",
+    datosGeoLocCargaPet: { lat: 0, lng: 0 },
 
     //son los datos de una pet, para cargarlas en la parte del edit
 
@@ -251,9 +251,9 @@ const state = {
     });
   },
 
-  setDatosGeoLocCargaPet(objeto) {
+  setDatosGeoLocCargaPet(lat: number, lng: number) {
     const currentState = this.getState();
-    currentState.datosGeoLocCargaPet = objeto;
+    currentState.datosGeoLocCargaPet = { lat: lat, lng: lng };
     this.setState(currentState);
   },
 
