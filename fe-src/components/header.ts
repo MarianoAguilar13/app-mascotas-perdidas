@@ -10,7 +10,7 @@ export const init = () => {
     render() {
       const style = document.createElement("style");
 
-      const BASEURL = "http://localhost:1234/";
+      const BASEURL = "https://app-mascotas.onrender.com/";
 
       this.shadow.innerHTML = `
     <div class="header">
