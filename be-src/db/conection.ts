@@ -1,6 +1,8 @@
 import { Sequelize } from "sequelize";
 import "dotenv/config";
 
+export const sequelize = new Sequelize(process.env.POSTGRE_ELEPHANT_URL);
+/*
 export const sequelize = new Sequelize({
   dialect: "postgres",
   username: process.env.POSTGRE_USERNAME,
@@ -16,7 +18,7 @@ export const sequelize = new Sequelize({
       rejectUnauthorized: false,
     },
   },
-});
+});*/
 
 async function main() {
   try {

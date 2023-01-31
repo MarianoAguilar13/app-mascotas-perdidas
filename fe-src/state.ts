@@ -1,6 +1,6 @@
-//const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "http://localhost:3000";
 
-const API_BASE_URL = "https://app-mascotas-perdidas.herokuapp.com";
+//const API_BASE_URL = "https://app-mascotas-perdidas.herokuapp.com";
 
 const state = {
   data: {
@@ -75,13 +75,15 @@ const state = {
         //Ahora itero y agrego todas las cards de las mascotas perdidas
         if (mascotas[0]) {
           for (const pet of mascotas) {
-            const newPet = {
-              id: pet.id,
-              picURL: pet.picURL,
-              name: pet.name,
-              description: pet.description,
-            };
-            arrayMascotas.push(newPet);
+            if (pet) {
+              const newPet = {
+                id: pet.id,
+                picURL: pet.picURL,
+                name: pet.name,
+                description: pet.description,
+              };
+              arrayMascotas.push(newPet);
+            }
           }
 
           currentState.petsPerdidasCercanas = arrayMascotas;

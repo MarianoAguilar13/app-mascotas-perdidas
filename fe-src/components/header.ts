@@ -10,6 +10,8 @@ export const init = () => {
     render() {
       const style = document.createElement("style");
 
+      const BASEURL = "http://localhost:1234/";
+
       this.shadow.innerHTML = `
     <div class="header">
       <div class="header__visible">
@@ -23,25 +25,25 @@ export const init = () => {
         <div class="header__links">
           <a
             class="header__links__link"
-            href="https://app-mascotas-perdidas.herokuapp.com/mis-datos"
+            href="${BASEURL}mis-datos"
             target=""
             >Mis Datos</a
           >
           <a
             class="header__links__link"
-            href="https://app-mascotas-perdidas.herokuapp.com/mis-pets-perdidas"
+            href="${BASEURL}mis-pets-perdidas"
             target=""
             >Mis mascotas perdidas</a
           >
           <a
             class="header__links__link"
-            href="https://app-mascotas-perdidas.herokuapp.com/cargar-pet-perdida"
+            href="${BASEURL}cargar-pet-perdida"
             target=""
             >Reportar mascota</a
           >
           <a
             class="header__links__link cerrar-sesion"
-            href="https://app-mascotas-perdidas.herokuapp.com/"
+            href="${BASEURL}"
             target=""
             >Cerrar sesión</a
           >
@@ -58,25 +60,25 @@ export const init = () => {
         <button class="ventana-links__boton-cerrar">x</button>
         <a
           class="ventana-links__link link-uno"
-          href="https://app-mascotas-perdidas.herokuapp.com/mis-datos"
+          href="${BASEURL}mis-datos"
           target=""
           >Mis Datos</a
         >
         <a
           class="ventana-links__link link-dos"
-          href="https://app-mascotas-perdidas.herokuapp.com/mis-pets-perdidas"
+          href="${BASEURL}mis-pets-perdidas"
           target=""
           >Mis mascotas perdidas</a
         >
         <a
           class="ventana-links__link link-tres"
-          href="https://app-mascotas-perdidas.herokuapp.com/cargar-pet-perdida"
+          href="${BASEURL}cargar-pet-perdida"
           target=""
           >Reportar mascota</a
         >
         <a
           class="ventana-links__link link-cuatro cerrar-sesion-ventana"
-          href="https://app-mascotas-perdidas.herokuapp.com/"
+          href="${BASEURL}"
           target=""
           >Cerrar sesion</a
         >
